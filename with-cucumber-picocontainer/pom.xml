@@ -12,7 +12,8 @@
     <artifactId>with-cucumber-picocontainer</artifactId>
 
     <properties>
-        <io.cucumber>3.0.2</io.cucumber>
+        <!--<io.cucumber>3.0.2</io.cucumber>-->
+        <io.cucumber>4.2.0</io.cucumber>
     </properties>
 
     <dependencies>

@@ -18,8 +18,8 @@ import static org.junit.Assert.assertThat;
 public class StepImpl1 {
     private Map<String, Grocery> priceList;
 
-    @Given("I have (\\d+) cookies in my belly")
-    public void i_have_n_cukes_in_my_belly(int cookies) {
+    @Given("^We have (\\d+) cookies in my belly$")
+    public void weHaveCookiesInMyBelly(int cookies) {
         System.out.format("cookies: %d\n", cookies);
     }
 
@@ -50,10 +50,10 @@ public class StepImpl1 {
         }
     }
 
-    @Then("^the result should be (.+)$")
-    public void the_result_should_be(String expectedResult) {
-        assertEquals(expectedResult, "ABC");
-        assertThat(expectedResult, is("ABC"));
+    @Then("^the result should be {int}$")
+    public void the_result_should_be(int expectedResult) {
+        assertEquals(expectedResult, 123);
+        assertThat(expectedResult, is(123));
     }
 
     @Given("the following colors are available")

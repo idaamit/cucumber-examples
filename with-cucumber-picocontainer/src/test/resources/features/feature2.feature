@@ -1,11 +1,14 @@
 Feature: bbbb
 
-  Scenario Outline: (2)
+  Scenario Outline: an example of scenario
+    """
+    We have a remarkable remark
+    """
     Given hi1 <name>
     Then bi1 <price>
     Examples:
-      |   name  | price |
-      | KMSY | 29 |
-      | KSFO | 37 |
-      | KSEA | 47 |
-      | KJFK | 40 |
+      | example description  | name | price | description |
+      | example description  | KMSY | 29    | a           |
+      | example description  | KSFO | 37    | v           |
+      | example description  | KSEA | 47    | v           |
+      | example description  | KJFK | 40    | d           |
