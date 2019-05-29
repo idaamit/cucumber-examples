@@ -50,7 +50,7 @@ public class StepImpl1 {
         }
     }
 
-    @Then("^the result should be {int}$")
+    @Then("the result should be {int}")
     public void the_result_should_be(int expectedResult) {
         assertEquals(expectedResult, 123);
         assertThat(expectedResult, is(123));

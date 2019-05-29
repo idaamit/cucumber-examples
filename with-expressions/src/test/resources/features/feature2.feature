@@ -9,3 +9,14 @@ Feature: feature2222
       | KSFO | 37    | description2 |
       | KSEA | 47    | description3 |
       | KJFK | 40    | description4 |
+
+
+  Scenario Outline: (3) Taken from production
+    Given mock PM <empId>
+    When execute PM <empId>
+      | media    |
+      | metadata |
+    Then job status should be <jobResult> for <empId> <siteID>
+    Examples:
+      | empId | siteID | jobResult | myAmount |
+      | 8800  | 1      | COMPLETED | 6        |

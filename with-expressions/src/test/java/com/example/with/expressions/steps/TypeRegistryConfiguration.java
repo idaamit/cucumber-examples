@@ -2,11 +2,14 @@ package com.example.with.expressions.steps;
 
 import com.example.with.expressions.Color;
 import com.example.with.expressions.Grocery;
+import com.example.with.expressions.JobResult;
+import com.example.with.expressions.JobType;
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
 import io.cucumber.cucumberexpressions.ParameterType;
 import io.cucumber.cucumberexpressions.Transformer;
 import io.cucumber.datatable.DataTableType;
+import io.cucumber.datatable.TableCellTransformer;
 import io.cucumber.datatable.TableEntryTransformer;
 
 import java.util.Locale;
@@ -59,5 +62,22 @@ public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
                 }
         ));
 
+        typeRegistry.defineParameterType(new ParameterType<JobResult>(
+                "jobResult",           // name
+                "COMPLETED|STARTED", // regexp
+                JobResult.class,       // type
+                new Transformer<JobResult>() {
+                    @Override
+                    public JobResult transform(String s) throws Throwable {
+                        return JobResult.valueOf(s);
+                    }
+                })
+        );
+        typeRegistry.defineDataTableType(new DataTableType(JobType.class, new TableCellTransformer() {
+            @Override
+            public JobType transform(String cell) {
+                return JobType.getByDescription(cell);
+            }
+        }));
     }
 }
