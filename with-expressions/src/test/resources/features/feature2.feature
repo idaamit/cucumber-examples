@@ -20,3 +20,11 @@ Feature: feature2222
     Examples:
       | empId | siteID | jobResult | myAmount |
       | 8800  | 1      | COMPLETED | 6        |
+
+
+  Scenario: (4) wide table
+    Given the following table exists in the db:
+      | siteId | interactionId | contactGMTStartTimeAsString | archiveId | setNumber | iEsmDeviceID | vcArchiveUniqueId |
+      | 1      | 1             | 1917-01-04                  | 1         | 1         |              |                   |
+      | 1      | 2             | 1917-01-04                  | 2         | 1         |              |                   |
+      | 2      | 11            | 1917-01-05                  | 11        | 1         |              |                   |

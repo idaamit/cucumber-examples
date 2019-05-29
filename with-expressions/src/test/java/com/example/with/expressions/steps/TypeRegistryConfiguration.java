@@ -1,9 +1,6 @@
 package com.example.with.expressions.steps;
 
-import com.example.with.expressions.Color;
-import com.example.with.expressions.Grocery;
-import com.example.with.expressions.JobResult;
-import com.example.with.expressions.JobType;
+import com.example.with.expressions.*;
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
 import io.cucumber.cucumberexpressions.ParameterType;
@@ -79,5 +76,19 @@ public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
                 return JobType.getByDescription(cell);
             }
         }));
+
+        typeRegistry.defineDataTableType(new DataTableType(DbLine.class, new TableEntryTransformer<DbLine>() {
+            @Override
+            public DbLine transform(Map<String, String> entry) {
+                return new DbLine(Integer.valueOf(entry.get("siteId")),
+                        Long.parseLong(entry.get("interactionId")),
+                        entry.get("contactGMTStartTimeAsString"),
+                        Long.parseLong(entry.get("archiveId")),
+                        entry.get("setNumber"),
+                        (entry.get("iEsmDeviceID").equals("") ) ? null : Integer.valueOf(entry.get("iEsmDeviceID")),
+                        entry.get("vcArchiveUniqueId"));
+            }
+        }));
+
     }
 }

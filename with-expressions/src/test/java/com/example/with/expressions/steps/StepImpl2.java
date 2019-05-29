@@ -1,5 +1,6 @@
 package com.example.with.expressions.steps;
 
+import com.example.with.expressions.DbLine;
 import com.example.with.expressions.JobResult;
 import com.example.with.expressions.JobType;
 import cucumber.api.Scenario;
@@ -50,4 +51,11 @@ public class StepImpl2 {
         System.out.println("employeeId=" + employeeId);
         System.out.println("jobResult=" + jobResult);
     }
+
+    @Given("the following table exists in the db:")
+    public void theFollowingTableExistsInTheDb(io.cucumber.datatable.DataTable dataTable) {
+        List<DbLine> storageCenterLineList = dataTable.asList(DbLine.class);
+        storageCenterLineList.forEach(System.out::println);
+    }
+
 }
