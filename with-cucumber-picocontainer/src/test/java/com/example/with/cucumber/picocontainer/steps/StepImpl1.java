@@ -10,13 +10,15 @@ public class StepImpl1 {
         this.testContext = testContext;
     }
 
-    @Given("^hi$")
-    public void hi() throws Throwable {
-        testContext.sharedParam2 = 1;
+    @Given("^put \\$(\\d+) in the bank$")
+    public void hi(int amount) {
+        testContext.sharedParam2 = amount;
     }
 
     @Then("^bi$")
-    public void bi() throws Throwable {
-
+    public void bi() {
+        System.out.println(" testContext.sharedParam2="+  testContext.sharedParam2);
     }
+
+
 }

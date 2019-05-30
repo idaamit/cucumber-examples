@@ -6,6 +6,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.apache.commons.lang3.time.StopWatch;
+import org.junit.Assert;
 
 public class StepImpl2 {
     private TestContext testContext;
@@ -30,19 +31,9 @@ public class StepImpl2 {
         System.out.println("\n============= end scenario:" + scenario.getName() + " Time Elapsed: " + watch.getTime() +" =============\n");
     }
 
-    @Given("^hi1 (.*)$")
-    public void hi(String name) throws Throwable {
-        System.out.println("name=" + name);
-    }
-
-    @Then("^getting shared param$")
-    public void getting_shared_param() throws Throwable {
-        System.out.println("world.sharedParam2= " + testContext.sharedParam2);
-    }
-
-
-    @Then("^bi1 (\\d+)$")
-    public void bi1(int price) throws Throwable {
-        System.out.println("price=" + price);
+    @Then("^getting shared param \\$(\\d+)$")
+    public void getting_shared_param(int expectingAmount) {
+        Assert.assertEquals("shared amount passes", expectingAmount , testContext.sharedParam2);
+        System.out.println("getting shared param world.sharedParam2= " + testContext.sharedParam2);
     }
 }
