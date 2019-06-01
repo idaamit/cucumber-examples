@@ -12,11 +12,10 @@
     <artifactId>with-expressions</artifactId>
     <properties>
         <!--<io.cucumber>3.0.2</io.cucumber>-->
-        <io.cucumber>4.2.0</io.cucumber>
+        <io.cucumber>4.3.1</io.cucumber>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
