@@ -28,3 +28,4 @@ Feature: feature2222
       | 1      | 1             | 1917-01-04                  | 1         | 1         |              |                   |
       | 1      | 2             | 1917-01-04                  | 2         | 1         |              |                   |
       | 2      | 11            | 1917-01-05                  | 11        | 1         |              |                   |
+    Then enrichment status bulkFailed=false

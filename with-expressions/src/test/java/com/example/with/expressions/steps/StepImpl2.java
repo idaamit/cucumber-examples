@@ -8,6 +8,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 import java.util.List;
 
@@ -58,4 +59,8 @@ public class StepImpl2 {
         storageCenterLineList.forEach(System.out::println);
     }
 
+    @Then("enrichment status bulkFailed={boolean}")
+    public void checkEnrichmentBulkFailedStatus(boolean actual) {
+        Assert.assertEquals("Wrong jobStatus of enrichment bulk. chunkFailed=", actual, false);
+    }
 }

@@ -70,6 +70,18 @@ public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
                     }
                 })
         );
+
+        typeRegistry.defineParameterType(new ParameterType<Boolean>(
+                "boolean",           // name
+                "true|false", // regexp
+                Boolean.class,       // type
+                new Transformer<Boolean>() {
+                    @Override
+                    public Boolean transform(String s) throws Throwable {
+                        return Boolean.valueOf(s);
+                    }
+                })
+        );
         typeRegistry.defineDataTableType(new DataTableType(JobType.class, new TableCellTransformer() {
             @Override
             public JobType transform(String cell) {

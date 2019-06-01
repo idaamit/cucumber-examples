@@ -10,7 +10,7 @@ import org.junit.Assert;
 
 public class StepImpl2 {
     private TestContext testContext;
-    private StopWatch watch = new StopWatch();;
+    private StopWatch watch = new StopWatch();
     public StepImpl2(TestContext testContext) {
         this.testContext = testContext;
     }
